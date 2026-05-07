@@ -1,0 +1,315 @@
+[gd_scene format=4 uid="uid://b8w3iouoh1utw"]
+
+[ext_resource type="PackedScene" uid="uid://lao46vh4npfp" path="res://scenes/player stuff/player.tscn" id="1_i4ql3"]
+[ext_resource type="PackedScene" uid="uid://remspgcpkxvc" path="res://scenes/camera and UI/ui.tscn" id="2_off4v"]
+[ext_resource type="PackedScene" uid="uid://dcr2iigcg0g1d" path="res://scenes/camera and UI/scroll_camera.tscn" id="3_hf6ij"]
+[ext_resource type="PackedScene" uid="uid://b2wrwa1ww15jc" path="res://scenes/tilesets/grass tiles.tscn" id="4_ernrm"]
+[ext_resource type="PackedScene" uid="uid://ck1u0iil7rf5j" path="res://scenes/tilesets/park_and_city_deco.tscn" id="5_ed1n5"]
+[ext_resource type="PackedScene" uid="uid://csdadd7a7ax1k" path="res://scenes/night_background.tscn" id="6_gu762"]
+[ext_resource type="PackedScene" uid="uid://cm67k7hfcnktf" path="res://scenes/level parts/coin.tscn" id="7_50gwp"]
+[ext_resource type="PackedScene" uid="uid://yo1myudrpq88" path="res://scenes/coin layouts/4x_4_coins.tscn" id="8_ro588"]
+[ext_resource type="PackedScene" uid="uid://di8m3hiyg88to" path="res://scenes/coin layouts/2x4 coins.tscn" id="9_8ee6d"]
+[ext_resource type="PackedScene" uid="uid://cas5weyo80kkn" path="res://scenes/coin layouts/8_coin_line.tscn" id="10_151pk"]
+[ext_resource type="PackedScene" uid="uid://bdco3n1entvw7" path="res://scenes/coin layouts/8x_2_coins.tscn" id="11_g2g5o"]
+[ext_resource type="PackedScene" uid="uid://eadtap0owsxy" path="res://scenes/enemies/coin_goblin.tscn" id="12_tc7su"]
+[ext_resource type="PackedScene" uid="uid://dhccq1n7v1kse" path="res://scenes/enemies/turret.tscn" id="13_g1867"]
+[ext_resource type="PackedScene" uid="uid://b0yrtkho23svq" path="res://scenes/level parts/death_barrier.tscn" id="13_off4v"]
+[ext_resource type="PackedScene" uid="uid://c0fhru5runea3" path="res://scenes/enemies/coin_bat.tscn" id="14_2snkt"]
+[ext_resource type="PackedScene" uid="uid://dx4ke4r6ucjqv" path="res://scenes/level parts/win.tscn" id="15_gwaws"]
+[ext_resource type="PackedScene" uid="uid://cwah3nkjr0wux" path="res://scenes/enemies/floater.tscn" id="16_off4v"]
+
+[node name="OKtestscene" type="Node2D" unique_id=1729807254]
+
+[node name="Player" parent="." unique_id=2119916908 instance=ExtResource("1_i4ql3")]
+position = Vector2(210, 306)
+
+[node name="UI" parent="." unique_id=1408281503 node_paths=PackedStringArray("playerNode", "camera") instance=ExtResource("2_off4v")]
+playerNode = NodePath("../Player")
+camera = NodePath("../ScrollCamera")
+
+[node name="ScrollCamera" parent="." unique_id=1773587581 node_paths=PackedStringArray("target") instance=ExtResource("3_hf6ij")]
+offset = Vector2(0, -10)
+zoom = Vector2(2, 2)
+target = NodePath("../Player")
+
+[node name="Grass" parent="." unique_id=270018676 instance=ExtResource("4_ernrm")]
+tile_map_data = PackedByteArray("AAAFAAoAAAAIAAAAAAAFAAsAAAAIAAEAAAAFAAwAAAAIAAIAAAAGAAoAAAAJAAAAAAAGAAsAAAAJAAEAAAAGAAwAAAAJAAIAAAAHAAoAAAAKAAAAAAAHAAsAAAAKAAEAAAAHAAwAAAAKAAIAAAAFAA0AAAAIAAEAAAAFAA4AAAAIAAIAAAAGAA0AAAAJAAEAAAAGAA4AAAAJAAIAAAAHAA0AAAAKAAEAAAAHAA4AAAAKAAIAAAAFAA8AAAAIAAEAAAAFABAAAAAIAAIAAAAGAA8AAAAJAAEAAAAGABAAAAAJAAIAAAAHAA8AAAAKAAEAAAAHABAAAAAKAAIAAAALAAwAAAAIAAAAAAALAA0AAAAIAAEAAAALAA4AAAAIAAIAAAAMAAwAAAAJAAAAAAAMAA0AAAAJAAEAAAAMAA4AAAAJAAIAAAAOAAwAAAAJAAAAAAAOAA0AAAAJAAEAAAAOAA4AAAAJAAIAAAAPAAwAAAAKAAAAAAAPAA0AAAAKAAEAAAAPAA4AAAAKAAIAAAANAAwAAAAJAAAAAAALAA8AAAAIAAEAAAALABAAAAAIAAIAAAAMAA8AAAAJAAEAAAAMABAAAAAJAAIAAAAOAA8AAAAJAAEAAAAOABAAAAAJAAIAAAAPAA8AAAAKAAEAAAAPABAAAAAKAAIAAAASAAwAAAALAAMAAAASAA0AAAAPAAEAAAASAA4AAAAPAAIAAAASAA8AAAAPAAIAAAASABAAAAAPAAIAAAAUAAkAAAAIAAAAAAAFABEAAAAIAAEAAAAFABIAAAAIAAIAAAAGABEAAAAJAAEAAAAGABIAAAAJAAIAAAAHABEAAAAKAAEAAAAHABIAAAAKAAIAAAAFABMAAAAIAAEAAAAFABQAAAAIAAIAAAAGABMAAAAJAAEAAAAGABQAAAAJAAIAAAAHABMAAAAKAAEAAAAHABQAAAAKAAIAAAALABEAAAAIAAEAAAALABIAAAAIAAIAAAAMABEAAAAJAAEAAAAMABIAAAAJAAIAAAALABMAAAAIAAEAAAALABQAAAAIAAIAAAAMABMAAAAJAAEAAAAMABQAAAAJAAIAAAAOABEAAAAJAAEAAAAOABIAAAAJAAIAAAAPABEAAAAKAAEAAAAPABIAAAAKAAIAAAAOABMAAAAJAAEAAAAOABQAAAAJAAIAAAAPABMAAAAKAAEAAAAPABQAAAAKAAIAAAASABEAAAAPAAEAAAASABIAAAAPAAIAAAASABMAAAAPAAEAAAASABQAAAAPAAIAAAANAA0AAAAJAAEAAAANAA4AAAAJAAIAAAANAA8AAAAJAAEAAAANABAAAAAJAAIAAAANABEAAAAJAAEAAAANABIAAAAJAAIAAAANABMAAAAJAAEAAAANABQAAAAJAAIAAAAUAAoAAAAIAAEAAAAUAAsAAAAIAAIAAAAUAAwAAAAIAAEAAAAUAA0AAAAIAAIAAAAUAA4AAAAIAAEAAAAUAA8AAAAIAAIAAAAUABAAAAAIAAEAAAAUABEAAAAIAAIAAAAUABIAAAAIAAEAAAAUABMAAAAIAAIAAAAUABQAAAAIAAEAAAAUABUAAAAIAAIAAAAUABYAAAAIAAEAAAAUABcAAAAIAAIAAAASABUAAAAPAAEAAAASABYAAAAPAAIAAAASABcAAAAPAAEAAAAFABUAAAAIAAEAAAAFABYAAAAIAAIAAAAGABUAAAAJAAEAAAAGABYAAAAJAAIAAAAHABUAAAAKAAEAAAAHABYAAAAKAAIAAAAGABcAAAAJAAEAAAAHABcAAAAKAAEAAAALABUAAAAIAAEAAAALABYAAAAIAAIAAAAPABUAAAAKAAEAAAAPABYAAAAKAAIAAAAMABUAAAAJAAEAAAAMABYAAAAJAAIAAAANABUAAAAJAAEAAAANABYAAAAJAAIAAAAOABUAAAAJAAEAAAAOABYAAAAJAAIAAAALABcAAAAIAAEAAAAMABcAAAAJAAEAAAANABcAAAAJAAEAAAAOABcAAAAJAAEAAAAPABcAAAAKAAEAAAAXAAkAAAAKAAAAAAAXAAoAAAAKAAEAAAAXAAsAAAAKAAIAAAAXAAwAAAAKAAEAAAAXAA0AAAAKAAIAAAAXAA4AAAAKAAEAAAAXAA8AAAAKAAIAAAAXABAAAAAKAAEAAAAXABEAAAAKAAIAAAAXABIAAAAKAAEAAAAXABMAAAAKAAIAAAAXABQAAAAKAAEAAAAXABUAAAAKAAIAAAAXABYAAAAKAAEAAAAXABcAAAAKAAIAAAAVAAoAAAAJAAEAAAAVAAsAAAAJAAIAAAAWAAoAAAAJAAEAAAAWAAsAAAAJAAIAAAAVAAwAAAAJAAEAAAAVAA0AAAAJAAIAAAAWAAwAAAAJAAEAAAAWAA0AAAAJAAIAAAAVAA4AAAAJAAEAAAAVAA8AAAAJAAIAAAAWAA4AAAAJAAEAAAAWAA8AAAAJAAIAAAAVABAAAAAJAAEAAAAVABEAAAAJAAIAAAAWABAAAAAJAAEAAAAWABEAAAAJAAIAAAAVABIAAAAJAAEAAAAVABMAAAAJAAIAAAAWABIAAAAJAAEAAAAWABMAAAAJAAIAAAAVABQAAAAJAAEAAAAVABUAAAAJAAIAAAAWABQAAAAJAAEAAAAWABUAAAAJAAIAAAAVABYAAAAJAAEAAAAVABcAAAAJAAIAAAAWABYAAAAJAAEAAAAWABcAAAAJAAIAAAAVAAkAAAAJAAAAAAAWAAkAAAAJAAAAAAAaAAwAAAAIAAAAAAAaAA0AAAAIAAEAAAAaAA4AAAAIAAIAAAAbAAwAAAAJAAAAAAAbAA0AAAAJAAEAAAAbAA4AAAAJAAIAAAAaAA8AAAAIAAEAAAAaABAAAAAIAAIAAAAbAA8AAAAJAAEAAAAbABAAAAAJAAIAAAAaABMAAAAIAAEAAAAaABQAAAAIAAIAAAAbABMAAAAJAAEAAAAbABQAAAAJAAIAAAAaABUAAAAIAAEAAAAaABYAAAAIAAIAAAAbABUAAAAJAAEAAAAbABYAAAAJAAIAAAAaABcAAAAIAAEAAAAbABcAAAAJAAEAAAAcAAwAAAAJAAAAAAAcAA0AAAAJAAEAAAAcAA4AAAAJAAIAAAAdAAwAAAAJAAAAAAAdAA0AAAAJAAEAAAAdAA4AAAAJAAIAAAAeAAwAAAAJAAAAAAAeAA0AAAAJAAEAAAAeAA4AAAAJAAIAAAAfAAwAAAAJAAAAAAAfAA0AAAAJAAEAAAAfAA4AAAAJAAIAAAAgAAwAAAAJAAAAAAAgAA0AAAAJAAEAAAAgAA4AAAAJAAIAAAAhAAwAAAAJAAAAAAAhAA0AAAAJAAEAAAAhAA4AAAAJAAIAAAAiAAwAAAAJAAAAAAAiAA0AAAAJAAEAAAAiAA4AAAAJAAIAAAAjAAwAAAAKAAAAAAAjAA0AAAAKAAEAAAAjAA4AAAAKAAIAAAAiAA8AAAAJAAEAAAAjAA8AAAAKAAEAAAAiABQAAAAJAAIAAAAjABMAAAAKAAAAAAAjABQAAAAKAAIAAAAiABUAAAAJAAEAAAAiABYAAAAJAAIAAAAjABUAAAAKAAEAAAAjABYAAAAKAAIAAAAiABcAAAAJAAEAAAAjABcAAAAKAAEAAAAcABcAAAAJAAEAAAAdABcAAAAJAAEAAAAeABcAAAAJAAEAAAAfABcAAAAJAAEAAAAgABcAAAAJAAEAAAAhABcAAAAJAAEAAAAcAA8AAAAJAAEAAAAcABAAAAAJAAIAAAAdAA8AAAAJAAEAAAAdABAAAAAJAAIAAAAeAA8AAAAJAAEAAAAeABAAAAAJAAIAAAAfAA8AAAAJAAEAAAAfABAAAAAJAAIAAAAgAA8AAAAJAAEAAAAgABAAAAAJAAIAAAAhAA8AAAAJAAEAAAAcABMAAAAJAAEAAAAcABQAAAAJAAIAAAAdABMAAAAJAAEAAAAdABQAAAAJAAIAAAAeABMAAAAJAAEAAAAeABQAAAAJAAIAAAAfABMAAAAJAAEAAAAfABQAAAAJAAIAAAAgABMAAAAJAAEAAAAgABQAAAAJAAIAAAAhABQAAAAJAAIAAAAcABUAAAAJAAEAAAAcABYAAAAJAAIAAAAdABUAAAAJAAEAAAAdABYAAAAJAAIAAAAeABUAAAAJAAEAAAAeABYAAAAJAAIAAAAfABUAAAAJAAEAAAAfABYAAAAJAAIAAAAgABUAAAAJAAEAAAAgABYAAAAJAAIAAAAhABUAAAAJAAEAAAAhABYAAAAJAAIAAAAmAA4AAAAIAAMAAAAnAA4AAAAJAAMAAAAoAA4AAAAKAAMAAAAnAA8AAAALAAEAAAAnABAAAAALAAEAAAAnABQAAAALAAEAAAAnABUAAAALAAEAAAAnABYAAAALAAEAAAAnABcAAAALAAEAAAAiABMAAAAJAAAAAAAhABMAAAAJAAAAAAAmABAAAAAJAAMAAAAnABEAAAALAAEAAAAnABIAAAALAAEAAAAnABMAAAALAAEAAAArAA8AAAAIAAAAAAArABAAAAAIAAEAAAArABEAAAAIAAIAAAAsAA8AAAAJAAAAAAAsABAAAAAJAAEAAAAsABEAAAAJAAIAAAAtAA8AAAAJAAAAAAAtABAAAAAJAAEAAAAtABEAAAAJAAIAAAAuAA8AAAAJAAAAAAAuABAAAAAJAAEAAAAuABEAAAAJAAIAAAAvAA8AAAAKAAAAAAAvABAAAAAKAAEAAAAvABEAAAAKAAIAAAArABIAAAAIAAEAAAArABMAAAAIAAIAAAAsABIAAAAJAAEAAAAsABMAAAAJAAIAAAArABQAAAAIAAEAAAArABUAAAAIAAIAAAAsABQAAAAJAAEAAAAsABUAAAAJAAIAAAArABYAAAAIAAEAAAArABcAAAAIAAIAAAAsABYAAAAJAAEAAAAsABcAAAAJAAIAAAAuABIAAAAJAAEAAAAuABMAAAAJAAIAAAAvABIAAAAKAAEAAAAvABMAAAAKAAIAAAAuABQAAAAJAAEAAAAuABUAAAAJAAIAAAAvABQAAAAKAAEAAAAvABUAAAAKAAIAAAAuABYAAAAJAAEAAAAuABcAAAAJAAIAAAAvABYAAAAKAAEAAAAvABcAAAAKAAIAAAAtABIAAAAJAAEAAAAtABMAAAAJAAIAAAAtABQAAAAJAAEAAAAtABUAAAAJAAIAAAAtABYAAAAJAAEAAAAtABcAAAAJAAIAAAAxABcAAAALAAEAAAAxABYAAAAJAAMAAAAxABMAAAALAAEAAAAxABIAAAALAAEAAAAxABEAAAALAAEAAAAxABAAAAALAAEAAAAxAA8AAAALAAEAAAAxAA4AAAALAAEAAAAxAA0AAAALAAEAAAAxAAwAAAALAAEAAAAwAAsAAAAJAAMAAAAxAAsAAAAJAAMAAAAvAAsAAAAIAAMAAAAyABYAAAAJAAMAAAAzABYAAAAJAAMAAAA0ABYAAAAJAAMAAAA1ABYAAAAJAAMAAAA1ABUAAAALAAEAAAA1ABQAAAALAAEAAAA1ABMAAAAJAAMAAAA2ABMAAAAJAAMAAAAyABMAAAAKAAMAAAA3ABMAAAAJAAMAAAA4ABMAAAAJAAMAAAA4ABIAAAALAAEAAAA4ABEAAAALAAEAAAA4ABAAAAAJAAMAAAA5ABAAAAAKAAMAAAA3ABAAAAAIAAMAAAA0ABMAAAAIAAMAAAAwABYAAAAIAAMAAAA2ABYAAAAKAAMAAAA5ABMAAAAJAAMAAAA6ABMAAAAJAAMAAAA7ABMAAAAJAAMAAAA8ABMAAAAJAAMAAAA9ABMAAAAJAAMAAAA+ABMAAAAJAAMAAAA/ABMAAAAKAAMAAAA+ABIAAAALAAEAAAA+ABEAAAALAAEAAAA+ABAAAAALAAEAAAA9AA8AAAAIAAMAAAA+AA8AAAAJAAMAAAA/AA8AAAAJAAMAAABAAA8AAAAKAAMAAABVABQAAAAJAAMAAABWABQAAAAKAAMAAABCABQAAAAJAAMAAABDABQAAAAJAAMAAABEABQAAAAJAAMAAABFABQAAAAJAAMAAABGABQAAAAJAAMAAABHABQAAAAKAAMAAABJABQAAAAIAAMAAABKABQAAAAJAAMAAABLABQAAAAJAAMAAABBABQAAAAIAAMAAABMABQAAAAKAAMAAABLABMAAAALAAEAAABLABIAAAALAAEAAABLABEAAAALAAEAAABKABAAAAAIAAMAAABLABAAAAAJAAMAAABMABAAAAAJAAMAAABNABAAAAAJAAMAAABQABAAAAAKAAMAAABPABAAAAAJAAMAAABOABAAAAAJAAMAAABPAA8AAAALAAEAAABPAA4AAAALAAEAAABPAA0AAAALAAEAAABOAAwAAAAIAAMAAABPAAwAAAAJAAMAAABQAAwAAAAKAAMAAAAyAAsAAAAKAAMAAABcABcAAAALAAEAAABcABYAAAALAAEAAABcABUAAAALAAEAAABcABQAAAALAAEAAABcABMAAAALAAEAAABcABIAAAALAAEAAABcABEAAAALAAEAAABbABAAAAAIAAMAAABcABAAAAAJAAMAAABdABAAAAAKAAMAAABYABIAAAAIAAMAAABZABIAAAAJAAMAAABaABIAAAAKAAMAAABiAA4AAAAPAAAAAABiAA8AAAAPAAEAAABiABAAAAAPAAIAAABiABEAAAAPAAEAAABiABIAAAAPAAIAAABiABMAAAAPAAEAAABiABQAAAAPAAIAAABiABUAAAAPAAEAAABiABYAAAAPAAIAAABiABcAAAAPAAEAAABXAAsAAAAIAAMAAABYAAsAAAAJAAMAAABZAAsAAAAKAAMAAABoAA0AAAAPAAAAAABrAAoAAAAPAAAAAABxAAoAAAAPAAAAAAB1AAcAAAAIAAMAAAB2AAcAAAAJAAMAAAB3AAcAAAAKAAMAAAB7AAkAAAAIAAMAAAB8AAkAAAAJAAMAAAB9AAkAAAAJAAMAAAB+AAkAAAAJAAMAAAB/AAkAAAAJAAMAAACAAAkAAAAJAAMAAACBAAkAAAAJAAMAAACCAAkAAAAJAAMAAACDAAkAAAAKAAMAAACAAAQAAAAIAAMAAACBAAQAAAAJAAMAAACCAAQAAAAKAAMAAACHAAkAAAALAAEAAACHAAgAAAALAAEAAACHAAcAAAALAAEAAACGAAQAAAAIAAMAAACHAAQAAAAJAAMAAACIAAQAAAAJAAMAAACHAAUAAAALAAEAAACHAAYAAAALAAEAAACGAAcAAAAJAAMAAACFAAcAAAAIAAMAAACJAAQAAAAJAAMAAACKAAQAAAAJAAMAAACLAAQAAAAJAAMAAACLAAMAAAALAAEAAACLAAIAAAALAAEAAACLAAEAAAALAAEAAACKAAAAAAAIAAMAAACLAAAAAAAJAAMAAACMAAAAAAAJAAMAAACMAAQAAAAKAAMAAACNAAAAAAAKAAMAAACPAAAAAAAJAAMAAACPAP//AAALAAEAAACPAP7/AAALAAEAAACPAP3/AAALAAEAAACQAAAAAAAKAAMAAACOAPz/AAAIAAMAAACPAPz/AAAJAAMAAACQAPz/AAAKAAMAAACCAAAAAAAJAAMAAACDAAAAAAAKAAMAAACBAAAAAAAIAAMAAACXAAAAAAAJAAMAAACYAAAAAAAKAAMAAACWAAAAAAAIAAMAAACeAAEAAAAIAAMAAACfAAEAAAAJAAMAAACgAAEAAAAKAAMAAAClAAMAAAAIAAMAAACmAAMAAAAJAAMAAACwAAMAAAAJAAMAAACxAAMAAAAJAAMAAACvAAMAAAAJAAMAAAC1AAMAAAAJAAMAAAC2AAMAAAAJAAMAAAC3AAMAAAAKAAMAAAC+AAMAAAAIAAMAAAC/AAMAAAAJAAMAAADAAAMAAAAKAAMAAAC7AAYAAAAIAAMAAAC8AAYAAAAJAAMAAAC9AAYAAAAKAAMAAAC0AAYAAAAJAAMAAAC1AAYAAAAJAAMAAAC2AAYAAAAKAAMAAACzAAkAAAAJAAMAAAC0AAkAAAAJAAMAAAC1AAkAAAAKAAMAAAC5AAkAAAAIAAMAAAC6AAkAAAAJAAMAAAC7AAkAAAAKAAMAAAC4AAwAAAAIAAMAAAC5AAwAAAAJAAMAAAC6AAwAAAAKAAMAAACyAAwAAAAJAAMAAACzAAwAAAAJAAMAAAC0AAwAAAAKAAMAAACnAAMAAAAJAAMAAACoAAMAAAAJAAMAAACpAAMAAAAJAAMAAACqAAMAAAAJAAMAAACrAAMAAAAJAAMAAACsAAMAAAAJAAMAAACtAAMAAAAJAAMAAACuAAMAAAAJAAMAAACyAAMAAAAJAAMAAACzAAMAAAAJAAMAAAC0AAMAAAAJAAMAAACzAAQAAAALAAEAAACzAAUAAAALAAEAAACzAAYAAAAJAAMAAACyAAYAAAAIAAMAAACzAAcAAAALAAEAAACzAAgAAAALAAEAAACyAAoAAAALAAEAAACyAAsAAAALAAEAAACxAAwAAAAIAAMAAACyAAkAAAAJAAMAAACxAAkAAAAIAAMAAACnABAAAAAIAAMAAACoABAAAAAJAAMAAACsABAAAAAKAAMAAACpABAAAAAJAAMAAACqABAAAAAJAAMAAACrABAAAAAJAAMAAACwABAAAAAIAAMAAACxABAAAAAJAAMAAACyABAAAAAJAAMAAACzABAAAAAJAAMAAAC0ABAAAAAJAAMAAAC1ABAAAAAJAAMAAAC2ABAAAAAJAAMAAAC3ABAAAAAKAAMAAAAFABcAAAAIAAEAAABUABQAAAAJAAMAAABTABQAAAAJAAMAAABSABQAAAAJAAMAAABRABQAAAAIAAMAAAA=")
+
+[node name="Park and City Deco" parent="." unique_id=1767832853 instance=ExtResource("5_ed1n5")]
+
+[node name="NightBackground" parent="." unique_id=27956610 instance=ExtResource("6_gu762")]
+position = Vector2(6, 57)
+
+[node name="Coins" type="Node" parent="." unique_id=2024461921]
+
+[node name="Coin" parent="Coins" unique_id=1774593180 instance=ExtResource("7_50gwp")]
+position = Vector2(820, 185)
+
+[node name="Coin2" parent="Coins" unique_id=237242975 instance=ExtResource("7_50gwp")]
+position = Vector2(846, 209)
+
+[node name="Coin3" parent="Coins" unique_id=674365423 instance=ExtResource("7_50gwp")]
+position = Vector2(872, 236)
+
+[node name="Coin4" parent="Coins" unique_id=990225128 instance=ExtResource("7_50gwp")]
+position = Vector2(903, 269)
+
+[node name="Coin5" parent="Coins" unique_id=191210624 instance=ExtResource("7_50gwp")]
+position = Vector2(918, 312)
+
+[node name="4X4 Coins" parent="Coins" unique_id=854188757 instance=ExtResource("8_ro588")]
+position = Vector2(399, 270)
+
+[node name="4X4 Coins2" parent="Coins" unique_id=1868329972 instance=ExtResource("8_ro588")]
+position = Vector2(669, 177)
+
+[node name="4X4 Coins3" parent="Coins" unique_id=2003977836 instance=ExtResource("8_ro588")]
+position = Vector2(1069, 525)
+
+[node name="Coin6" parent="Coins" unique_id=779189955 instance=ExtResource("7_50gwp")]
+position = Vector2(867, 579)
+
+[node name="Coin7" parent="Coins" unique_id=809500964 instance=ExtResource("7_50gwp")]
+position = Vector2(900, 579)
+
+[node name="Coin8" parent="Coins" unique_id=8698038 instance=ExtResource("7_50gwp")]
+position = Vector2(931, 579)
+
+[node name="Coin9" parent="Coins" unique_id=933191342 instance=ExtResource("7_50gwp")]
+position = Vector2(963, 579)
+
+[node name="Coin10" parent="Coins" unique_id=479926687 instance=ExtResource("7_50gwp")]
+position = Vector2(996, 579)
+
+[node name="Coin11" parent="Coins" unique_id=1853433536 instance=ExtResource("7_50gwp")]
+position = Vector2(1027, 579)
+
+[node name="2by4coins" parent="Coins" unique_id=1032987446 instance=ExtResource("9_8ee6d")]
+position = Vector2(1638, 563)
+
+[node name="Coin12" parent="Coins" unique_id=945084569 instance=ExtResource("7_50gwp")]
+position = Vector2(2601, 296)
+
+[node name="Coin13" parent="Coins" unique_id=1569252454 instance=ExtResource("7_50gwp")]
+position = Vector2(2627, 320)
+
+[node name="Coin14" parent="Coins" unique_id=995230210 instance=ExtResource("7_50gwp")]
+position = Vector2(2653, 347)
+
+[node name="Coin15" parent="Coins" unique_id=1800694492 instance=ExtResource("7_50gwp")]
+position = Vector2(2684, 380)
+
+[node name="Coin16" parent="Coins" unique_id=1358209382 instance=ExtResource("7_50gwp")]
+position = Vector2(2699, 423)
+
+[node name="CoinGoblin" parent="Coins" unique_id=2016667003 instance=ExtResource("12_tc7su")]
+position = Vector2(2508, 494)
+
+[node name="8 Coin line3" parent="Coins" unique_id=1862730847 instance=ExtResource("10_151pk")]
+position = Vector2(2114, 617)
+
+[node name="4X4 Coins4" parent="Coins" unique_id=1019191285 instance=ExtResource("8_ro588")]
+position = Vector2(2160, 520)
+
+[node name="8 Coin line4" parent="Coins" unique_id=385528576 instance=ExtResource("10_151pk")]
+position = Vector2(823, 369)
+rotation = 1.5707964
+
+[node name="DeathBarrier" parent="Coins" unique_id=6790313 instance=ExtResource("13_off4v")]
+position = Vector2(73, 777)
+
+[node name="Node2D" parent="Coins" unique_id=315120155 instance=ExtResource("9_8ee6d")]
+position = Vector2(1661, 664)
+rotation = 1.5707964
+
+[node name="8 Coin line" parent="Coins" unique_id=696838787 instance=ExtResource("10_151pk")]
+position = Vector2(4000, 271)
+
+[node name="4X4 Coins5" parent="Coins" unique_id=1017241823 instance=ExtResource("8_ro588")]
+position = Vector2(4318, 47)
+
+[node name="Node2D2" parent="Coins" unique_id=687092270 instance=ExtResource("9_8ee6d")]
+position = Vector2(4503, -99)
+
+[node name="Node2D3" parent="Coins" unique_id=1050223438 instance=ExtResource("9_8ee6d")]
+position = Vector2(5323, 10)
+
+[node name="8x2 coins" parent="Coins" unique_id=660384464 instance=ExtResource("11_g2g5o")]
+position = Vector2(5681, 478)
+
+[node name="4X4 Coins6" parent="Coins" unique_id=318898593 instance=ExtResource("8_ro588")]
+position = Vector2(2652, 552)
+
+[node name="Node2D4" parent="Coins" unique_id=1379205726 instance=ExtResource("9_8ee6d")]
+position = Vector2(2951, 428)
+
+[node name="8 Coin line2" parent="Coins" unique_id=886465892 instance=ExtResource("10_151pk")]
+position = Vector2(5422, 81)
+
+[node name="8 Coin line5" parent="Coins" unique_id=1519405807 instance=ExtResource("10_151pk")]
+position = Vector2(5676, 82)
+
+[node name="4X4 Coins7" parent="Coins" unique_id=177433602 instance=ExtResource("8_ro588")]
+position = Vector2(1980, 392)
+
+[node name="Node2D5" parent="Coins" unique_id=908509095 instance=ExtResource("9_8ee6d")]
+position = Vector2(2362, 557)
+
+[node name="Node2D6" parent="Coins" unique_id=1109898273 instance=ExtResource("9_8ee6d")]
+position = Vector2(6068, 156)
+rotation = 1.5707964
+
+[node name="Enemies" type="Node" parent="." unique_id=1959043592]
+
+[node name="Turret" parent="Enemies" unique_id=336070921 instance=ExtResource("13_g1867")]
+position = Vector2(592, 369)
+lookingLeft = true
+
+[node name="CoinGoblin" parent="Enemies" unique_id=1219671029 instance=ExtResource("12_tc7su")]
+position = Vector2(487, 370)
+
+[node name="CoinGoblin2" parent="Enemies" unique_id=278322149 instance=ExtResource("12_tc7su")]
+position = Vector2(855, 369)
+
+[node name="CoinGoblin3" parent="Enemies" unique_id=1142994454 instance=ExtResource("12_tc7su")]
+position = Vector2(1133, 369)
+
+[node name="Turret2" parent="Enemies" unique_id=1112997962 instance=ExtResource("13_g1867")]
+position = Vector2(1240, 429)
+
+[node name="CoinBat" parent="Enemies" unique_id=1513249079 instance=ExtResource("14_2snkt")]
+position = Vector2(1518, 393)
+
+[node name="Turret3" parent="Enemies" unique_id=829948066 instance=ExtResource("13_g1867")]
+position = Vector2(1610, 589)
+
+[node name="CoinBat2" parent="Enemies" unique_id=458936276 instance=ExtResource("14_2snkt")]
+position = Vector2(915, 552)
+
+[node name="CoinGoblin5" parent="Enemies" unique_id=942953832 instance=ExtResource("12_tc7su")]
+position = Vector2(1842, 590)
+
+[node name="CoinGoblin6" parent="Enemies" unique_id=1744533814 instance=ExtResource("12_tc7su")]
+position = Vector2(1904, 590)
+
+[node name="CoinGoblin7" parent="Enemies" unique_id=369862917 instance=ExtResource("12_tc7su")]
+position = Vector2(1969, 590)
+
+[node name="Turret5" parent="Enemies" unique_id=1393616452 instance=ExtResource("13_g1867")]
+position = Vector2(2025, 589)
+
+[node name="Turret6" parent="Enemies" unique_id=189130343 instance=ExtResource("13_g1867")]
+position = Vector2(2362, 621)
+lookingLeft = true
+
+[node name="CoinGoblin8" parent="Enemies" unique_id=331335424 instance=ExtResource("12_tc7su")]
+position = Vector2(2103, 622)
+
+[node name="CoinGoblin9" parent="Enemies" unique_id=116935393 instance=ExtResource("12_tc7su")]
+position = Vector2(2282, 622)
+
+[node name="CoinGoblin4" parent="Enemies" unique_id=35663065 instance=ExtResource("12_tc7su")]
+position = Vector2(724, 274)
+
+[node name="CoinGoblin10" parent="Enemies" unique_id=524432337 instance=ExtResource("12_tc7su")]
+position = Vector2(2553, 366)
+
+[node name="Turret4" parent="Enemies" unique_id=2060418308 instance=ExtResource("13_g1867")]
+position = Vector2(2832, 333)
+
+[node name="Turret7" parent="Enemies" unique_id=1079113090 instance=ExtResource("13_g1867")]
+position = Vector2(3152, 433)
+lookingLeft = true
+
+[node name="Floater" parent="Enemies" unique_id=1165860230 instance=ExtResource("16_off4v")]
+position = Vector2(3632, 204)
+startingDir = "Left"
+
+[node name="Floater2" parent="Enemies" unique_id=1917603762 instance=ExtResource("16_off4v")]
+position = Vector2(3836, 197)
+startingDir = "Left"
+
+[node name="CoinGoblin11" parent="Enemies" unique_id=664626080 instance=ExtResource("12_tc7su")]
+position = Vector2(4186, 270)
+
+[node name="Turret8" parent="Enemies" unique_id=2120112524 instance=ExtResource("13_g1867")]
+position = Vector2(4167, 109)
+
+[node name="Turret9" parent="Enemies" unique_id=909797440 instance=ExtResource("13_g1867")]
+position = Vector2(4119, 109)
+
+[node name="Turret10" parent="Enemies" unique_id=1532859176 instance=ExtResource("13_g1867")]
+position = Vector2(4143, 109)
+
+[node name="Turret11" parent="Enemies" unique_id=233169637 instance=ExtResource("13_g1867")]
+position = Vector2(4199, -19)
+
+[node name="Turret12" parent="Enemies" unique_id=526802110 instance=ExtResource("13_g1867")]
+position = Vector2(4151, -19)
+
+[node name="Turret13" parent="Enemies" unique_id=2040628673 instance=ExtResource("13_g1867")]
+position = Vector2(4175, -19)
+
+[node name="CoinGoblin12" parent="Enemies" unique_id=180011374 instance=ExtResource("12_tc7su")]
+position = Vector2(4318, 110)
+
+[node name="CoinGoblin13" parent="Enemies" unique_id=299849228 instance=ExtResource("12_tc7su")]
+position = Vector2(4411, 110)
+
+[node name="Turret14" parent="Enemies" unique_id=1142429451 instance=ExtResource("13_g1867")]
+position = Vector2(4611, -19)
+
+[node name="Turret15" parent="Enemies" unique_id=161105184 instance=ExtResource("13_g1867")]
+position = Vector2(4618, -19)
+
+[node name="Turret16" parent="Enemies" unique_id=182060026 instance=ExtResource("13_g1867")]
+position = Vector2(5621, 77)
+lookingLeft = true
+
+[node name="Floater3" parent="Enemies" unique_id=1167464936 instance=ExtResource("16_off4v")]
+position = Vector2(5540, -34)
+startingDir = "Left"
+
+[node name="Turret17" parent="Enemies" unique_id=410694115 instance=ExtResource("13_g1867")]
+position = Vector2(5833, 173)
+
+[node name="Turret18" parent="Enemies" unique_id=650910551 instance=ExtResource("13_g1867")]
+position = Vector2(5806, 173)
+
+[node name="Turret19" parent="Enemies" unique_id=1985388238 instance=ExtResource("13_g1867")]
+position = Vector2(5778, 173)
+
+[node name="Turret20" parent="Enemies" unique_id=99217846 instance=ExtResource("13_g1867")]
+position = Vector2(5801, 269)
+
+[node name="Turret21" parent="Enemies" unique_id=2070791683 instance=ExtResource("13_g1867")]
+position = Vector2(5774, 269)
+
+[node name="Turret22" parent="Enemies" unique_id=133692174 instance=ExtResource("13_g1867")]
+position = Vector2(5768, 365)
+
+[node name="Turret23" parent="Enemies" unique_id=765355278 instance=ExtResource("13_g1867")]
+position = Vector2(5741, 365)
+
+[node name="Turret24" parent="Enemies" unique_id=2009035897 instance=ExtResource("13_g1867")]
+position = Vector2(6100, 77)
+lookingLeft = true
+
+[node name="Win" parent="." unique_id=1538667523 node_paths=PackedStringArray("camera", "UI") instance=ExtResource("15_gwaws")]
+position = Vector2(5368, 494)
+camera = NodePath("../ScrollCamera")
+UI = NodePath("../UI")
+
+[node name="8x2 coins" parent="." unique_id=2005880458 instance=ExtResource("11_g2g5o")]
+position = Vector2(917, 354)
+
+[node name="4X4 Coins" parent="." unique_id=631184859 instance=ExtResource("8_ro588")]
+position = Vector2(1420, 402)
+
+[node name="Node2D" parent="." unique_id=960897139 instance=ExtResource("9_8ee6d")]
+position = Vector2(1603, 318)
+rotation = 1.5707964
+
+[node name="Node2D2" parent="." unique_id=1589120307 instance=ExtResource("9_8ee6d")]
+position = Vector2(2477, 478)
+rotation = 1.5707964
